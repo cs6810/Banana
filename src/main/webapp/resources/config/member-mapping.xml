@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAO">
+
+	<!-- 회원정보 확인 -->
+	<select id="confirmID" resultType="String">
+		SELECT pwd FROM member
+		WHERE email_id=#{email_id}
+	</select>
+	
+	<!-- 멤버 조회 -->
+	<select id="memberInfo" parameterType="String"  resultType="member">
+		SELECT *
+		 FROM member
+		WHERE email_id=#{email_id}
+	</select>
+
+	<!--  회원정보 변경 -->
+	<update id="updateMember">
+	UPDATE member 
+	SET pwd=#{pwd},
+		name=#{name},
+		nk_name=#{nk_name},
+		ph_nm=#{ph_nm},
+		address=#{address},
+		profile_img=#{profile_img}
+	WHERE email_id=#{email_id}
+	</update>
+	
+	
+	
+</mapper>

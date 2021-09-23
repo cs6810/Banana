@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MailDAO">
+			
+	<insert id="insertMail">
+		INSERT INTO mail(sender, receiver, title, contents)
+		VALUES('보내는 member 아이디', '22hyeok@naver.com', #{title}, #{contents})
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
