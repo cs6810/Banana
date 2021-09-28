@@ -25,35 +25,32 @@ public class MailDAO {
 	@Autowired
 	private JavaMailSenderImpl mailSender;
 	
-	@RequestMapping(value = "sendMail", method = RequestMethod.POST)
-	public void insertMail(MailVO vo) {
-		
-		mybatis.insert("MailDAO.insertMail", vo);
+	@RequestMapping(value = "sendMail", method = {RequestMethod.GET, RequestMethod.POST})
+	public void insertMail(String id, MailVO vo) {
 		
 		mailSender =  (JavaMailSenderImpl)ctx.getBean("mailSender");
 		
-		String from = "22hyeok@naver.com";
-		String to = "22hyeok@naver.com";
-		String subject = vo.getTitle();
-		String content = vo.getContents();
+		String admin = "22hyeok@naver.com"; //관리자 메일 주소
 		
 		try {
-			// 메일 내용 넣을 객체와, 이를 도와주는 Helper 객체 생성
+			// mail 발송위한 sender 설정
 			MimeMessage mail = mailSender.createMimeMessage();
 			MimeMessageHelper mailHelper = new MimeMessageHelper(mail, "UTF-8");
 
-			// 메일 내용을 채워줌
-			mailHelper.setFrom(from);	// 보내는 사람 셋팅
-			mailHelper.setTo(to);		// 받는 사람 셋팅
-			mailHelper.setSubject(subject);	// 제목 셋팅
-			mailHelper.setText(content);	// 내용 셋팅
+			// mailHelper에 set
+			mailHelper.setFrom(admin);	// 보내는사람 (실제 발송자 ID를 넣을 수 있으나 naver계정에서 발송자 주소 차단되는 경우 있음)
+			mailHelper.setTo(admin);		// 받는사람 (관리자의 메일 계정)
+			mailHelper.setSubject(vo.getTitle() + "  / 문의자 이메일주소 : " + id);	// 제목, (네이버 발송자 메일주소 차단되는 경우 때문에 제목에 실제 발송자 ID 삽입)
+			mailHelper.setText(vo.getContents());	// 내용
 
-			// 메일 전송
+			// 발송부분
 			mailSender.send(mail);
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		mybatis.insert("MailDAO.insertMail", vo);
 		
 	}
 }
