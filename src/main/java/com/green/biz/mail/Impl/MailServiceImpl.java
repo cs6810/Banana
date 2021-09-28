@@ -14,9 +14,9 @@ public class MailServiceImpl implements MailService {
 	private MailDAO mDao;
 	
 	@Override
-	public void insertMail(MailVO vo) {
+	public void insertMail(String id, MailVO vo) {
 		
-		mDao.insertMail(vo);
+		mDao.insertMail(id, vo);
 	}
 
 }
