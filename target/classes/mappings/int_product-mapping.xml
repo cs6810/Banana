@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IntproductDAO">
+
+	<!-- 관심상품 목록 불러오기-->
+	<select id="intproductList" parameterType="intproduct" resultType="intproduct">
+		SELECT*
+		FROM int_pd
+		WHERE user_id=#{user_id}
+		ORDER BY pd_number DESC
+	</select>
+	
+	<!-- 관심상품에  추가 -->
+	<insert id="insertIntProduct" >
+		INSERT INTO int_pd(user_id,pd_number, product_name, category, price, content, image1) 
+		VALUES (#{user_id},#{pd_number}, #{product_name}, #{category}, #{price}, #{content}, #{image1})
+	</insert>
+	
+	<!-- 관심상품제거 -->
+	<delete id="deleteIntproduct" parameterType="int">
+		DELETE FROM int_pd
+		WHERE pd_number=#{pd_number}
+	</delete>
+</mapper>
