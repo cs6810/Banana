@@ -30,7 +30,7 @@ public class MailDAO {
 		
 		mailSender =  (JavaMailSenderImpl)ctx.getBean("mailSender");
 		
-		String admin = "22hyeok@naver.com"; //관리자 메일 주소
+		String admin = "관리자메일주소"; //관리자 메일 주소 입력부분(받을 네이버 주소 ex. 22hyeok@naver.com)
 		
 		try {
 			// mail 발송위한 sender 설정
