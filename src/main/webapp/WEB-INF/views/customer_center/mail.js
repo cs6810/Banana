@@ -1,5 +1,9 @@
 function go_mail() {
-	$("#center_form").attr("action", "mail_form").submit();
+	if($("#nowUser").val() == ""){
+		alert("로그인 후 이용 가능합니다.");
+	} else {
+		$("#center_form").attr("action", "mail_form").submit();
+	}
 }
 
 
