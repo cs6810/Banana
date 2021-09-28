@@ -36,7 +36,11 @@ function go_save_product() {
 }
 
 function go_mod(pd_id) {
-	$("#product_detail").attr("action", "update_form?pd_id="+pd_id).submit();
+	if ($("#emailID").val() == $("#nowID").val()) {
+		$("#product_detail").attr("action", "update_form?pd_id="+pd_id).submit();
+	} else {
+		alert("상품을 등록한 사용자만 수정할 수 있습니다.");
+	}
 }
 
 function go_mod_save(pd_id){
