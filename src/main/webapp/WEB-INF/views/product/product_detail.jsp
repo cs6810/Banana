@@ -10,6 +10,10 @@
 <h1>상품조회</h1>  
 
 <form name="product" id="product_detail" method="POST" >
+
+<input type="hidden" name="nowID" id="nowID" value="${sessionScope.loginUser.email_id}">
+<input type="hidden" name="emailID" id="emailID" value="${productVO.email_id}">
+
 <table id="insertProduct">
 <tr>
   <th>상품명</th>
@@ -71,6 +75,10 @@
     <td width="343" colspan="5">
     <img src="images/product/${productVO.image1}" width="200pt">
     </td>
+</tr>
+<tr> 
+	<th>판매자 ID </th>
+	<td width="343" colspan="5">${productVO.email_id}</td>
 </tr>
 <tr> 
 	<th>판매자 연락처 </th>
