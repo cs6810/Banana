@@ -10,6 +10,7 @@
 <h1>1:1문의하기</h1>  
 
 <form name="main" id="mail_form" method="post" >
+  <input type="hidden" name="emailID" id="emailID" value="${sessionScope.loginUser.email_id}">
 <table id="mail">
 <tr>
   <th>제목</th>
