@@ -12,13 +12,17 @@ public interface MainlistService {
 	//물건 검색
 	public List<ProductVO> searchProduct(String key);
 	
-	//높은 가격순으로 정렬
+	/*//높은 가격순으로 정렬
 	public List<ProductVO> highPrice(ProductVO vo);
 
 	//낮은 가격순으로 정렬
 	public List<ProductVO> rowPrice(ProductVO vo);
+	*/
 	
 	//카테고리별 정렬
-	public List<ProductVO> category(int category);
+	public List<ProductVO> category(int category, String searchKey);
+	
+	// 검색 결과 내 필터링
+	public List<ProductVO> filtering(int category, int filter, boolean flag, String search_key);
 		
 }

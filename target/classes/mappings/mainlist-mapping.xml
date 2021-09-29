@@ -6,6 +6,7 @@
 	<select id="getMainlist" parameterType="String"  resultType="product">
 		SELECT*
 		FROM product
+		ORDER BY pd_id DESC
 	</select>
 
 	<!-- 검색 기능(제목 및 내용으로 검색) -->
@@ -18,25 +19,48 @@
 		ORDER BY pd_id DESC
 	</select>
 	
-	<!-- 가격 높은순으로 정렬 -->
-	<select id="highPrice" parameterType="String"  resultType="product">
-		SELECT*
+	<!-- 검색 결과 필터링 -->
+	<select id="searchFilter" parameterType="hashMap"  resultType="product">
+		SELECT *
 		FROM product
+		WHERE 1=1
+		<if test="search_flag">
+		AND (product_name LIKE '%'|| #{search_key}||'%'
+			 OR 
+			 content LIKE '%' || #{search_key}||'%')
+		</if>
+		
+		<if test="filter == 0">
+		ORDER BY  pd_id DESC
+		</if>
+		
+		<if test="filter == 1">	<!-- 높은 가격순 -->
+			<if test="category != 99">
+			AND category=#{category}
+			</if>
 		ORDER BY price DESC
-	</select>
-	
-	<!-- 가격 낮은순으로 정렬 -->
-	<select id="rowPrice" parameterType="String"  resultType="product">
-		SELECT*
-		FROM product
-		ORDER BY price ASC
+		</if>
+		
+		<if test="filter == 2"> <!-- 낮은 가격순 -->
+			<if test="category != 99">
+			AND category=#{category}
+			</if>
+		ORDER BY price ASC 		
+		</if>
+		
 	</select>
 	
 	<!-- 카테고리로 보여줌 -->
-	<select id= "category" parameterType="Integer"  resultType="product">
+	<select id= "category" parameterType="hashMap"  resultType="product">
 		SELECT *
 		FROM product
 		WHERE category=#{category}
-		ORDER BY  pd_id DESC
+		
+ 		<if test="searchKey != null and searchKey != ''">
+			AND (PRODUCT_NAME LIKE '%' || #{searchKey} || '%'
+			OR CONTENT LIKE '%' || #{searchKey} || '%')
+		</if> 
+		ORDER BY pd_id DESC
 	</select>
+	
 </mapper>

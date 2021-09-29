@@ -38,7 +38,7 @@
 <div id="my_page">
       <input class="btn" type="button" name="sell_list" value="판매내역" onClick="location.href='sale_list_form'">
       <input class="btn" type="button" name="buy_list" value="구매내역" onClick="location.href='buy_list_form'">
-      <input class="btn" type="button" name="favorite" value="관심상품" onClick="">
+      <input class="btn" type="button" name="favorite" value="관심상품" onClick="location.href='int_product_list_form'">
       <input class="btn" type="button" name="profile_edit" value="프로필 수정" onClick="location.href='profile_update_form'">
 	
 </div>

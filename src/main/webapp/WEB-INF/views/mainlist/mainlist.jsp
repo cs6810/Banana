@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
   <%@ include file="../header.jsp" %> 
   
@@ -61,13 +61,13 @@
 		    	카테고리
 		  	</button>
 			  	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-			    <li><a class="dropdown-item" href="products_by_category?category=1">디지털기기</a></li>
-			    <li><a class="dropdown-item" href="products_by_category?category=2">패션</a></li>
-			    <li><a class="dropdown-item" href="products_by_category?category=3">스포츠</a></li>
-				<li ><a class="dropdown-item"  href='products_by_category?category=4'>기타</a></li>
+			    <li><a class="dropdown-item" id= "category1">디지털기기</a></li>
+			    <li><a class="dropdown-item" id= "category2">패션</a></li>
+			    <li><a class="dropdown-item" id= "category3">스포츠</a></li>
+				<li ><a class="dropdown-item" id= "category4">기타</a></li>
 			  	</ul>
 			</div>
-		</div>
+		</div>	
 		<div>
 			<div class="dropdown">
 		  	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,8 +75,8 @@
 		  	</button>
 			  	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 			    <li><a class="dropdown-item" href="index">기본정렬</a></li>
-			    <li><a class="dropdown-item" href="high_price_form">가격 높은순</a></li>
-			    <li><a class="dropdown-item" href="row_price_form">가격 낮은순</a></li>
+			    <li><a class="dropdown-item" href="search_filter?filter=1">가격 높은순</a></li>
+			    <li><a class="dropdown-item" href="search_filter?filter=2">가격 낮은순</a></li>
 			  	</ul>
 			</div>
 		</div>
@@ -119,4 +119,24 @@
     </div>
  </footer>
  
+ 
+<script>
+ 
+ $("#category1").click(function(e){
+	 console.log("click1!");
+	 $("#category1").attr("href","products_by_category?category=1&searchKey="+ $('#inputval').val());
+ });
+ $("#category2").click(function(e){
+	 console.log("click2!");
+	 $("#category2").attr("href","products_by_category?category=2&searchKey="+ $('#inputval').val());
+ });
+ $("#category3").click(function(e){
+	 console.log("click3!");
+	 $("#category3").attr("href","products_by_category?category=3&searchKey="+ $('#inputval').val());
+ });
+ $("#category4").click(function(e){
+	 console.log("click4!");
+	 $("#category4").attr("href","products_by_category?category=4&searchKey="+ $('#inputval').val());
+ });
+ </script>
  

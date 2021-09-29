@@ -18,7 +18,7 @@
 		<typeAlias type="com.green.biz.dto.MemberVO" alias="mypage"></typeAlias>
 		<typeAlias type="com.green.biz.dto.BuylistVO" alias="buylist"></typeAlias>
 		<typeAlias type="com.green.biz.dto.MailVO" alias="mail"></typeAlias>
-		
+		<typeAlias type="com.green.biz.dto.IntproductVO" alias="intproduct"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
@@ -30,6 +30,7 @@
 		<mapper resource="mappings/mainlist-mapping.xml" />	
 		<mapper resource="mappings/salelist-mapping.xml" />	
 		<mapper resource="mappings/mail-mapping.xml" />
+		<mapper resource="mappings/int_product-mapping.xml" />
 
 	</mappers>
 </configuration>

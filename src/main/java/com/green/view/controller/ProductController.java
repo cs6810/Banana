@@ -36,6 +36,7 @@ public class ProductController {
 		
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 
+		
 		if(loginUser==null) {
 			System.out.println("판매목록 불러오기 실패");
 			return "member/login";

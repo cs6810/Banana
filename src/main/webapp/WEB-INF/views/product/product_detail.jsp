@@ -3,6 +3,11 @@
 <%@ include file="../header.jsp" %>  
 
 <head>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous">
 </head>
 <html>
 <body>
@@ -15,7 +20,7 @@
 <input type="hidden" name="emailID" id="emailID" value="${productVO.email_id}">
 
 <table id="insertProduct">
-<tr>
+<tr>	
   <th>상품명</th>
   <td width="343" colspan="5">${productVO.product_name}
   </td>
@@ -86,7 +91,8 @@
 </tr>
 
 </table>
-	<input class="btn"  type="button" value="수정" onClick="go_mod('${productVO.pd_id}')">
+	<input type="button" class="btn btn-primary" onclick="go_mod('${productVO.pd_id}')" value="수정">
+	<input type="button" class="btn btn-primary" onclick="go_mod('${productVO.pd_id}')" value="관심상품등록">
 	<input class="btn"  type="hidden" value="채팅으로 거래하기" onClick="go_deal()">
 </form> 
 </article>

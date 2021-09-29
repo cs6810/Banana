@@ -96,7 +96,6 @@
 <div>
 
 	<c:forEach items="${getMainlist}" var="productVO">
-	
 		 <div class="card" style="width: 18rem;">
 		  <img id="img1" src="images/product/${productVO.image1}" class="card-img-top" alt="물건사진">
 		  <div class="card-body">

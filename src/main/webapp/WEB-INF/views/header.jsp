@@ -54,7 +54,7 @@
  -->
        
        <li>
-         <a href="profile_update_form">MY프로필</a>
+         <a href="my_page_form">마이페이지</a>
        </li>
        <li>
          <a href="customer_center">고객센터</a>

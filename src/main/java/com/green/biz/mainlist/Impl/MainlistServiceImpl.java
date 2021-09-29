@@ -28,7 +28,7 @@ public class MainlistServiceImpl implements MainlistService {
 			return mainDao.searchProduct(key);
 		}
 
-		//높은 가격순으로 정렬
+		/*//높은 가격순으로 정렬
 		@Override
 		public List<ProductVO> highPrice(ProductVO vo) {
 			
@@ -40,12 +40,21 @@ public class MainlistServiceImpl implements MainlistService {
 		public List<ProductVO> rowPrice(ProductVO vo) {
 
 			return mainDao.rowPrice(vo);
-		}
+		}*/
 
-		//카테고리정렬
-		@Override
-		public List<ProductVO> category(int category) {
-			// TODO Auto-generated method stub
-			return mainDao.category(category);
-		}
+	//카테고리정렬
+	@Override
+	public List<ProductVO> category(int category, String searchKey) {
+		
+		return mainDao.category(category, searchKey);
+	}
+	
+	// 검색 결과 내 필터링
+	@Override
+	public List<ProductVO> filtering(int category, int filter, boolean flag, String search_key) {
+		
+		return mainDao.searchFilter(category, filter, flag, search_key);
+	}
+
+	
 }
